@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Flores amarillas virtuales del 21 de septiembre: un ramo de girasoles que no se marchita.">
+<meta name="color-scheme" content="light">
+
+<!-- Vista previa al compartir el enlace (WhatsApp, Instagram, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Flores amarillas para ti Shary">
+<meta property="og:description" content="Un ramo que no se marchita. Ábrelo.">
+<!-- Si subes una imagen de portada al repo, descomenta y pon la URL completa:
+<meta property="og:image" content="https://TU-USUARIO.github.io/flores-amarillas/portada.png"> -->
+
+<style>
+  /* Reset mínimo */
+  html{ padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  body{ margin:0; background:#FFE3C7; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  img{ max-width:100%; }
+  [hidden]{ display:none !important; }
+</style>
+<title>Flores amarillas para ti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Caveat:wght@400..700&family=Karla:wght@300;400;500;600&display=swap">
+</head>
+<body>
+
+<style>
+  :root{
+    --peach:#FFE3C7;
+    --peach-deep:#F9C89B;
+    --apricot:#F2A03D;
+    --amber-deep:#D9772B;
+    --blush:#E98A74;
+    --plum:#4B2436;
+    --plum-soft:#7C4A53;
+    --paper:#FFF8F0;
+    --leaf:#7E8C56;
+    --seed:#8A5A2B;
+    --gutter:20px;
+    --maxw:560px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:
+      radial-gradient(120% 60% at 50% 0%, #FFF1DD 0%, rgba(255,241,221,0) 60%),
+      linear-gradient(178deg, var(--peach) 0%, #FFD9B0 38%, #F8C49A 72%, #F0AE86 100%);
+    background-attachment:fixed;
+    color:var(--plum);
+    font-family:"Karla", ui-sans-serif, system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  #petals{position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:0;}
+
+  .wrap{
+    position:relative; z-index:1;
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding-inline:var(--gutter);
+    padding-block:0 64px;
+  }
+
+  section{padding-block:56px}
+
+  /* ---------- tipografía ---------- */
+  .eyebrow{
+    font-family:"Karla",sans-serif; font-size:.72rem; font-weight:600;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--amber-deep);
+    margin:0;
+  }
+  h1{
+    font-family:"Fraunces", Georgia, serif;
+    font-optical-sizing:auto;
+    font-weight:400; font-style:italic;
+    font-size:clamp(2.6rem, 13vw, 3.8rem);
+    line-height:1.02; margin:.25em 0 0; text-wrap:balance;
+    color:var(--plum);
+  }
+  h2{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:400; font-style:italic;
+    font-size:clamp(1.5rem,6vw,1.9rem);
+    line-height:1.2; margin:0 0 .5em; text-wrap:balance;
+  }
+  .hand{font-family:"Caveat","Bradley Hand","Segoe Script","Apple Chancery",cursive; line-height:1.35;}
+
+  /* ---------- portada ---------- */
+  .cover{
+    min-height:min(86svh, 700px);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; gap:6px;
+    padding-block:40px 32px;
+  }
+  .bouquet{width:min(74%,300px); height:auto; display:block; margin-bottom:6px;}
+  .monogram{display:flex; align-items:center; gap:14px; margin-top:22px;}
+  .tag{
+    width:62px;height:62px; display:grid; place-items:center;
+    background:var(--paper);
+    border:1.5px solid var(--peach-deep);
+    box-shadow:0 6px 18px rgba(139,79,45,.14);
+    font-family:"Fraunces",serif; font-size:1.5rem; color:var(--amber-deep);
+  }
+  .tag.l{border-radius:52% 48% 46% 54% / 54% 50% 50% 46%; transform:rotate(-7deg)}
+  .tag.r{border-radius:48% 52% 54% 46% / 46% 50% 50% 54%; transform:rotate(6deg)}
+  .knot{width:26px;height:1.5px;background:var(--peach-deep)}
+  .cta{
+    margin-top:30px;
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:"Karla",sans-serif; font-weight:600; font-size:.82rem;
+    letter-spacing:.16em; text-transform:uppercase;
+    color:var(--paper); background:linear-gradient(160deg,var(--apricot),var(--amber-deep));
+    border:0; border-radius:999px; padding:15px 30px; cursor:pointer;
+    box-shadow:0 10px 24px rgba(193,106,40,.32);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .cta:hover{transform:translateY(-2px); box-shadow:0 14px 28px rgba(193,106,40,.38)}
+  .cta:focus-visible{outline:2.5px solid var(--plum); outline-offset:3px}
+  .scroll-hint{
+    margin-top:26px; font-size:.78rem; letter-spacing:.1em; color:var(--plum-soft);
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+  }
+  .chev{width:18px;height:18px;animation:bob 2.6s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+  /* ---------- mensajes ---------- */
+  .note{
+    display:grid; gap:18px; justify-items:center; text-align:center;
+    padding-block:34px;
+  }
+  .note p{
+    font-family:"Fraunces",Georgia,serif; font-weight:300;
+    font-size:clamp(1.28rem,5.4vw,1.55rem); line-height:1.45;
+    margin:0; max-width:24ch; text-wrap:balance; color:var(--plum);
+  }
+  .note em{font-style:italic; color:var(--amber-deep)}
+  .stem{width:min(60%,210px); height:auto}
+  .rule{
+    width:100%; height:1px; border:0; margin:0;
+    background:linear-gradient(90deg,transparent,rgba(139,79,45,.28),transparent);
+  }
+
+  /* ---------- contador ---------- */
+  .count-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:6px}
+  .tile{
+    background:rgba(255,248,240,.72);
+    border:1px solid rgba(249,200,155,.9);
+    border-radius:4px;
+    padding:16px 8px; text-align:center;
+  }
+  .tile b{
+    display:block; font-family:"Fraunces",serif; font-weight:500;
+    font-size:clamp(1.7rem,8vw,2.2rem); line-height:1;
+    font-variant-numeric:tabular-nums; color:var(--amber-deep);
+  }
+  .tile span{
+    display:block; margin-top:7px; font-size:.68rem; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--plum-soft);
+  }
+
+  /* ---------- galería ---------- */
+  .gallery{display:flex; flex-wrap:wrap; gap:16px; justify-content:center; margin-top:30px}
+  .polaroid{
+    background:var(--paper); padding:10px 10px 34px;
+    box-shadow:0 10px 26px rgba(120,66,38,.18);
+    width:min(44%,168px);
+  }
+  .polaroid:nth-child(1){transform:rotate(-3deg)}
+  .polaroid:nth-child(2){transform:rotate(2.5deg)}
+  .polaroid:nth-child(3){transform:rotate(-1.5deg)}
+  .polaroid .frame{
+    aspect-ratio:1/1; max-width:100%;
+    display:grid; place-items:center; text-align:center;
+    background:repeating-linear-gradient(45deg,#FDECD8,#FDECD8 8px,#FBE2C7 8px,#FBE2C7 16px);
+    color:var(--plum-soft); font-size:.7rem; letter-spacing:.08em; padding:8px;
+  }
+  .polaroid .cap{
+    font-family:"Caveat",cursive; font-size:1.15rem; color:var(--plum-soft);
+    text-align:center; margin-top:8px; line-height:1;
+  }
+
+  /* ---------- sobre ---------- */
+  .envelope-zone{display:flex; flex-direction:column; align-items:center; text-align:center; gap:18px}
+  .env-btn{
+    background:none; border:0; padding:0; cursor:pointer; width:min(78%,290px);
+    transition:transform .3s ease;
+  }
+  .env-btn:hover{transform:translateY(-4px) rotate(-1deg)}
+  .env-btn:focus-visible{outline:2.5px solid var(--plum); outline-offset:6px}
+  .env-btn svg{width:100%;height:auto;display:block;filter:drop-shadow(0 14px 26px rgba(120,66,38,.22))}
+  #flap{transform-origin:50% 0%; transition:transform .85s cubic-bezier(.65,-0.2,.3,1.4)}
+  .opened #flap{transform:rotateX(178deg)}
+  .tap{font-family:"Caveat","Bradley Hand","Segoe Script",cursive; font-size:1.3rem; color:var(--plum-soft)}
+
+  .letter{
+    margin-top:26px;
+    background:
+      linear-gradient(0deg, rgba(249,200,155,.16), rgba(249,200,155,.16)),
+      var(--paper);
+    padding:30px 24px 34px;
+    box-shadow:0 18px 40px rgba(120,66,38,.2);
+    border-top:3px solid var(--apricot);
+    text-align:left;
+    animation:unfold .7s ease both;
+  }
+  @keyframes unfold{from{opacity:0; transform:translateY(22px) scale(.97)} to{opacity:1; transform:none}}
+  .letter .meta{
+    font-family:"Karla",sans-serif; font-size:.7rem; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--amber-deep);
+    display:flex; flex-wrap:wrap; gap:4px 18px; margin-bottom:18px;
+  }
+  .letter .hand{font-size:1.5rem; color:var(--plum); margin:0 0 .7em}
+  .letter .hand:last-of-type{margin-bottom:0}
+  .sign{text-align:right; font-family:"Caveat",cursive; font-size:1.7rem; color:var(--amber-deep); margin-top:26px}
+
+  /* ---------- cierre ---------- */
+  .closing{text-align:center; display:grid; justify-items:center; gap:14px}
+  .closing h2{margin-bottom:0}
+  .closing p{max-width:30ch; color:var(--plum-soft); margin:0}
+  .fine{font-size:.74rem; letter-spacing:.06em; color:rgba(124,74,83,.75); text-align:center; margin-top:30px}
+
+  /* ---------- reveal ---------- */
+  .pending{opacity:0; transform:translateY(18px)}
+  .reveal{transition:opacity .9s ease, transform .9s ease}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important}
+    .pending{opacity:1; transform:none}
+  }
+</style>
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="gCentro" cx="42%" cy="38%">
+      <stop offset="0%" stop-color="#B07A3C"/>
+      <stop offset="100%" stop-color="#6E451F"/>
+    </radialGradient>
+    <linearGradient id="gPetalo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD37A"/>
+      <stop offset="55%" stop-color="#F5A83C"/>
+      <stop offset="100%" stop-color="#E08427"/>
+    </linearGradient>
+    <g id="girasol">
+      <g id="petalos"></g>
+      <circle cx="0" cy="0" r="15" fill="url(#gCentro)"/>
+      <circle cx="0" cy="0" r="15" fill="none" stroke="#5A3616" stroke-opacity=".35" stroke-width="1.5"/>
+    </g>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+  <!-- ============ PORTADA ============ -->
+  <section class="cover">
+    <svg class="bouquet" viewBox="0 0 300 260" role="img" aria-label="Ramo de girasoles atado con un lazo">
+      <!-- tallos -->
+      <g stroke="#7E8C56" stroke-width="5" stroke-linecap="round" fill="none">
+        <path d="M150 250 C148 200 146 170 150 130"/>
+        <path d="M150 250 C132 205 110 180 92 152"/>
+        <path d="M150 250 C168 205 190 180 208 152"/>
+        <path d="M150 250 C140 210 124 186 116 122"/>
+        <path d="M150 250 C160 210 176 186 184 122"/>
+      </g>
+      <!-- hojas -->
+      <path d="M150 214 C126 208 112 190 110 172 C132 174 148 192 150 214Z" fill="#8FA063"/>
+      <path d="M150 200 C174 194 188 178 190 160 C168 162 152 178 150 200Z" fill="#7E8C56"/>
+      <!-- flores -->
+      <use href="#girasol" x="92" y="146"/>
+      <use href="#girasol" x="208" y="146"/>
+      <use href="#girasol" x="116" y="116"/>
+      <use href="#girasol" x="184" y="116"/>
+      <use href="#girasol" x="150" y="126"/>
+      <!-- lazo -->
+      <g fill="#E98A74">
+        <path d="M150 232 C136 220 120 220 116 232 C120 244 138 242 150 232Z"/>
+        <path d="M150 232 C164 220 180 220 184 232 C180 244 162 242 150 232Z"/>
+        <circle cx="150" cy="232" r="7"/>
+      </g>
+      <rect x="140" y="228" width="20" height="26" rx="3" fill="#E98A74" opacity=".55"/>
+    </svg>
+
+    <p class="eyebrow">21 de septiembre</p>
+    <h1>Flores amarillas<br>para ti</h1>
+
+    <div class="monogram" aria-hidden="true">
+      <span class="tag J">J</span>
+      <span class="knot"></span>
+      <span class="tag S">S</span>
+    </div>
+
+    <button class="cta" id="verRegalo">Ver regalo</button>
+
+    <div class="scroll-hint">
+      <span>o baja despacio</span>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="#7C4A53" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ============ MENSAJES ============ -->
+  <section id="mensajes">
+    <div class="note reveal">
+      <svg class="stem" viewBox="0 0 160 190" aria-hidden="true">
+        <path d="M80 186 C78 140 76 112 80 78" stroke="#7E8C56" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M80 150 C58 146 46 130 44 114 C64 116 78 132 80 150Z" fill="#8FA063"/>
+        <use href="#girasol" x="80" y="66"/>
+      </svg>
+      <p>Hay días que dan ganas de comer <em>ramen</em>. Este no es uno de ellos, te lo sigo deviendo.</p>
+    </div>
+
+    <hr class="rule">
+
+    <div class="note reveal">
+      <p>No hace falta una ocasión enorme para molestarte, un hola, un <em>audio</em> diciendo caulquier vaina.</p>
+    </div>
+
+    <hr class="rule">
+
+    <div class="note reveal">
+      <p>Estas flores no se marchitan. Se quedan aquí, esperándote, cada vez que quieras volver a abrirlas.</p>
+      <svg class="stem" viewBox="0 0 220 120" aria-hidden="true">
+        <g transform="translate(58,64) scale(.8)"><use href="#girasol"/></g>
+        <use href="#girasol" x="110" y="56"/>
+        <g transform="translate(162,66) scale(.75)"><use href="#girasol"/></g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ CONTADOR + GALERÍA ============ -->
+  <section id="nuestro" class="reveal">
+    <p class="eyebrow">Lo que llevamos</p>
+    <h2>Un rato largo siendo amigos</h2>
+    <div class="count-grid">
+      <div class="tile"><b id="dias">—</b><span>Días</span></div>
+      <div class="tile"><b id="semanas">—</b><span>Semanas</span></div>
+      <div class="tile"><b id="meses">—</b><span>Meses</span></div>
+    </div>
+
+    <div class="gallery">
+      <figure class="polaroid">
+        <img class="frame" src="1.jpeg" alt="tu foto aquí"/>
+        <figcaption class="cap">Sepa</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img class="frame" src="2.jpeg" alt="tu foto aquí"/>
+        <figcaption class="cap">la</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img class="frame" src="3.jpeg" alt="tu foto aquí"/>
+        <figcaption class="cap">bola</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ SOBRE ============ -->
+  <section id="carta" class="envelope-zone reveal">
+    <h2>Tengo una cosa más</h2>
+    <button class="env-btn" id="envBtn" aria-expanded="false" aria-controls="cartaTexto">
+      <svg viewBox="0 0 300 200" role="img" aria-label="Sobre cerrado con un girasol; tócalo para abrirlo">
+        <rect x="8" y="30" width="284" height="162" rx="6" fill="#FFF8F0" stroke="#F0C79A" stroke-width="2"/>
+        <path d="M8 192 L150 110 L292 192Z" fill="#FDEDD8"/>
+        <path d="M8 36 L150 118 L292 36" fill="none" stroke="#F0C79A" stroke-width="2"/>
+        <g id="flap">
+          <path d="M8 34 L150 116 L292 34 L292 30 A6 6 0 0 0 286 24 L14 24 A6 6 0 0 0 8 30Z" fill="#FBE0BE"/>
+          <path d="M8 34 L150 116 L292 34" fill="none" stroke="#E9BD8C" stroke-width="2"/>
+        </g>
+        <g transform="translate(150,116) scale(1.05)">
+          <use href="#girasol" x="0" y="0"/>
+        </g>
+      </svg>
+    </button>
+    <p class="tap" id="tapHint">toca el sobre</p>
+
+    <div class="letter" id="cartaTexto" hidden>
+      <div class="meta"><span>De: Jeremias</span><span>Para: Shary</span></div>
+      <p class="hand">Te escribo esto un domingo, que es cuando tengo menos pereza.</p>
+      <p class="hand">Gracias porque si, porque me caes bien.</p>
+      <p class="hand">Que este 21 de septiembre te encuentres bien, y que si algún día no lo estás, te acuerdes de que tienes a quién llamar.</p>
+      <p class="sign">— Jeremias</p>
+    </div>
+  </section>
+
+  <!-- ============ CIERRE ============ -->
+  <section class="closing reveal">
+    <svg width="120" height="46" viewBox="0 0 120 46" aria-hidden="true">
+      <g transform="translate(26,26) scale(.62)"><use href="#girasol"/></g>
+      <use href="#girasol" x="60" y="20"/>
+      <g transform="translate(94,26) scale(.62)"><use href="#girasol"/></g>
+    </svg>
+    <h2>Feliz día de las flores amarillas</h2>
+  </section>
+</div>
+
+<script>
+/* ---------- fecha desde la que contamos (cámbiala por la real) ---------- */
+const DESDE = new Date(2026, 1, 15); // 15 de febrero de 2026
+
+/* ---------- pétalos del girasol dibujados una sola vez ---------- */
+(function petalosSVG(){
+  const g = document.getElementById('petalos');
+  const N = 16;
+  for(let i=0;i<N;i++){
+    const a = (360/N)*i;
+    const p = document.createElementNS('http://www.w3.org/2000/svg','ellipse');
+    p.setAttribute('cx','0'); p.setAttribute('cy','-26');
+    p.setAttribute('rx','7.5'); p.setAttribute('ry','17');
+    p.setAttribute('fill','url(#gPetalo)');
+    p.setAttribute('transform','rotate('+a+')');
+    g.appendChild(p);
+  }
+})();
+
+/* ---------- contador ---------- */
+(function contador(){
+  const hoy = new Date();
+  const dias = Math.max(0, Math.floor((hoy - DESDE)/86400000));
+  const meses = Math.max(0,(hoy.getFullYear()-DESDE.getFullYear())*12 + (hoy.getMonth()-DESDE.getMonth()));
+  const fmt = n => n.toLocaleString('es-EC');
+  document.getElementById('dias').textContent = fmt(dias);
+  document.getElementById('semanas').textContent = fmt(Math.floor(dias/7));
+  document.getElementById('meses').textContent = fmt(meses);
+})();
+
+/* ---------- botón de la portada ---------- */
+document.getElementById('verRegalo').addEventListener('click', () => {
+  document.getElementById('mensajes').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+/* ---------- sobre ---------- */
+(function sobre(){
+  const btn = document.getElementById('envBtn');
+  const carta = document.getElementById('cartaTexto');
+  const hint = document.getElementById('tapHint');
+  btn.addEventListener('click', () => {
+    const abierto = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!abierto));
+    btn.classList.toggle('opened', !abierto);
+    carta.hidden = abierto;
+    hint.textContent = abierto ? 'toca el sobre' : 'ciérralo cuando quieras';
+    if(!abierto){
+      setTimeout(()=>carta.scrollIntoView({behavior:'smooth', block:'center'}), 220);
+    }
+  });
+})();
+
+/* ---------- aparición suave (solo para lo que no se ve al cargar) ---------- */
+(function aparecer(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const items = [...document.querySelectorAll('.reveal')];
+  if(reduce || !('IntersectionObserver' in window)) return;
+  const fuera = items.filter(el => el.getBoundingClientRect().top > window.innerHeight - 60);
+  fuera.forEach(el => el.classList.add('pending'));
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.remove('pending'); io.unobserve(e.target); }
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -8% 0px'});
+  fuera.forEach(el=>io.observe(el));
+  setTimeout(()=>fuera.forEach(el=>el.classList.remove('pending')), 4000);
+})();
+
+/* ---------- pétalos cayendo ---------- */
+(function lluvia(){
+  const cv = document.getElementById('petals');
+  const ctx = cv.getContext('2d');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let w=0,h=0,dpr=1,petalos=[],raf=null;
+
+  const colores = ['#F5B84C','#F2A03D','#FBD08A','#E98A74','#E9B168'];
+
+  function medir(){
+    dpr = Math.min(window.devicePixelRatio||1, 2);
+    w = cv.clientWidth; h = cv.clientHeight;
+    cv.width = w*dpr; cv.height = h*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  function nacer(y){
+    return {
+      x: Math.random()*w,
+      y: y!==undefined ? y : -20 - Math.random()*h,
+      r: 4 + Math.random()*5,
+      vy: .25 + Math.random()*.55,
+      sway: .4 + Math.random()*1.1,
+      fase: Math.random()*Math.PI*2,
+      giro: Math.random()*Math.PI,
+      vgiro: (Math.random()-.5)*.02,
+      color: colores[(Math.random()*colores.length)|0],
+      alpha: .35 + Math.random()*.45
+    };
+  }
+  function poblar(){
+    const n = Math.round(Math.min(46, Math.max(16, w/16)));
+    petalos = Array.from({length:n}, ()=>nacer(Math.random()*h));
+  }
+  function dibujar(){
+    ctx.clearRect(0,0,w,h);
+    for(const p of petalos){
+      p.y += p.vy;
+      p.fase += .012;
+      p.x += Math.sin(p.fase)*p.sway*.6;
+      p.giro += p.vgiro;
+      if(p.y - p.r > h){ Object.assign(p, nacer()); }
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.giro);
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.ellipse(0,0,p.r*.48,p.r,0,0,Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    }
+    raf = requestAnimationFrame(dibujar);
+  }
+  function arrancar(){
+    medir(); poblar();
+    if(reduce){ ctx.globalAlpha=.4; dibujarEstatico(); return; }
+    if(raf) cancelAnimationFrame(raf);
+    dibujar();
+  }
+  function dibujarEstatico(){
+    ctx.clearRect(0,0,w,h);
+    for(const p of petalos){
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.giro);
+      ctx.globalAlpha=p.alpha*.7; ctx.fillStyle=p.color;
+      ctx.beginPath(); ctx.ellipse(0,0,p.r*.48,p.r,0,0,Math.PI*2); ctx.fill(); ctx.restore();
+    }
+  }
+  let t=null;
+  window.addEventListener('resize', ()=>{ clearTimeout(t); t=setTimeout(arrancar,180); });
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.hidden && raf){ cancelAnimationFrame(raf); raf=null; }
+    else if(!document.hidden && !reduce && !raf){ dibujar(); }
+  });
+  arrancar();
+})();
+</script>
+</body>
+</html>
